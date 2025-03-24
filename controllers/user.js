@@ -7,13 +7,14 @@ usersRouter.get("/", async (req, res) => {
     url: 1,
     title: 1,
     author: 1,
+    likes: 1
   });
   res.json(users);
 });
 
 usersRouter.get("/:id", async (req, res) => {
   const user = await User.findById(req.params.id)
-    .populate("blogs", {url: 1, title: 1, author: 1})
+    .populate("blogs", {url: 1, title: 1, author: 1, likes: 1})
   if (user) {
     res.json(user);
   } else {

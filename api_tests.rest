@@ -1,22 +1,21 @@
 GET http://localhost:3003/api/blogs
 
 ###
-GET http://localhost:3003/api/blogs/67de540f9679a49c28df9a6e
+GET http://localhost:3003/api/blogs/67de57394c4c70d9f5c59989
 
 ###
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "second blog",
-  "author": "Ali",
+  "title": "3 blog",
   "url": "some_url",
-  "likes": 15,
+  "likes": 150,
   "user": "67de47f65305d9b82dd73ed3"
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/67de53a79cfe5e2ddf3f2077
+DELETE http://localhost:3003/api/blogs/67de540f9679a49c28df9a6e
 
 ###
 PUT http://localhost:3003/api/blogs/67d244bad6ab7fddc273cace
@@ -29,19 +28,22 @@ Content-Type: application/json
 ###
 GET http://localhost:3003/api/users
 ###
-GET http://localhost:3003/api/users/67de4b4ad5176376d146f341
+GET http://localhost:3003/api/users/67de47f65305d9b82dd73ed3
 ###
 POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-  "username": "od",
-  "name": "Abdohh",
-  "password": "12312"
+  "username": "3dnan",
+  "name": "adnan abd",
+  "password": "adnan"
 }
 
-# {
-#   "username": "3dnan",
-#   "name": "Adnan Abd",
-#   "password": "12345678"
-# }
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "3li",
+  "password": "123456789"
+}
