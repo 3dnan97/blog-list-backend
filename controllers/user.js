@@ -24,11 +24,19 @@ usersRouter.get("/:id", async (req, res) => {
 // I still have to do the tests for task 4.16
 usersRouter.post("/", async (req, res) => {
   const { username, name, password } = req.body;
+  
+  if(!password) {
+    return res
+      .status(400)
+      .json({ error: "Password is required."})
+  }
 
+
+  // Ensure the password length is at least 3
   if (password && password.length < 3) {
     return res
       .status(400)
-      .json({ error: "Password must be at least 3 charakters." });
+      .json({ error: "Password must be at least 3 characters." });
   }
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(password, saltRounds);

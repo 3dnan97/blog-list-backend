@@ -1,4 +1,9 @@
 const blog = require("../models/blog");
+const User = require("../models/user");
+const app = require("../app")
+const supertest = require("supertest")
+const api = supertest(app)
+
 
 const dummyBlogs = [
   {
@@ -28,4 +33,20 @@ const blogsInDB = async () => {
 
 const firstPostInBlog = async () => (await blogsInDB())[0];
 
-module.exports = { dummyBlogs, blogsInDB, firstPostInBlog };
+const createUserAndLogin = async () => {
+  const username = "testuser"
+  const name = "test user"
+  const password = "password123"
+
+  await api.post("/api/users").send({username, name, password})
+  const login = await api.post("/api/login").send({username, password})
+  
+  const user = await User.findOne({username})
+  
+  return {
+    token: login.body.token,
+    userId: user._id.toString()
+  }
+}
+
+module.exports = { dummyBlogs, blogsInDB, firstPostInBlog, createUserAndLogin };

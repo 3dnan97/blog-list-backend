@@ -98,13 +98,13 @@ describe('favourite blog', () => {
 
 })
 
-// describe('Most blogs', () => {
-//     test('Author with most blogs', () =>{
-//         const expected = {
-//             author: "Robert C. Martin",
-//             blogs: 3
-//           }
-//         const result = listHelper.mostBlogs(blogs)
-//         assert.deepStrictEqual(result,expected)
-//     })
-// })
+describe.only('Most blogs', () => {
+    test('Author with most blogs', () =>{
+        const expected = {
+            author: "Robert C. Martin",
+            blogs: 3
+          }
+        const result = listHelper.mostBlogs(blogs)
+        assert.deepStrictEqual(result,expected)
+    })
+})
